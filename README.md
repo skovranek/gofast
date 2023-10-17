@@ -2,7 +2,7 @@
 A python project to generate go APIs.
 
 ## How to Execute GoFast
-**NOTE**
+> **Note**
 > This is just an intermediate stage, for proof of concept.
 
 [How to create a CLI Cmd](https://dbader.org/blog/how-to-make-command-line-commands-with-python)
