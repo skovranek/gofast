@@ -1,1 +1,4 @@
-PyYAML==6.0.1
+pathspec==0.11.2
+ruamel.yaml==0.17.35
+ruamel.yaml.clib==0.2.8
+yamllint==1.32.0

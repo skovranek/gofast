@@ -1,3 +1,6 @@
 .env
-env/
+venv/
 notes.txt
+out.txt
+output.txt
+data.yml

@@ -1,9 +1,16 @@
-import yaml
+#!/usr/bin/env python
 
-with open('data.yml', 'r') as yaml_data:
+import sys
+from ruamel.yaml import YAML
+
+with open(sys.argv[1], 'r') as yaml_data:
     try:
-        data = yaml.load(yaml_data, Loader=yaml.FullLoader)
+        yaml=YAML(typ="safe", pure=True)
+        data = yaml.load(yaml_data)
     except yaml.YAMLError as e:
         print(f"YAML parsing error: {e}")
 
 print(data['key'])
+
+with open(sys.argv[2], 'a') as f:
+    f.write(data['key'])
