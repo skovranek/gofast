@@ -3,4 +3,6 @@ venv/
 notes.txt
 out.txt
 output.txt
+out/
+output/
 data.yml

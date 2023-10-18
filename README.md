@@ -18,10 +18,14 @@ $ chmod +x gofast
 
 3) Add GoFast to your PATH. If on a mac with Zsh, add something like this line to '.zshrc':
 ```
-export PATH=$PATH:$HOME/path/to/gofast
+echo 'export PATH=$PATH:$HOME/path/to/gofast' >> ~/.zshrc
+```
+or symlink it to the './venv/bin/' directory
+```
+$ ln -s gofast ./venv/bin/gofast
 ```
 
-4) The new 'gofast' command takes two arguments. First, the YAML file. Second, the destination file for the output. Run GoFast: 
+4) The new 'gofast' command takes two arguments. First, the YAML file. Second, the destination directory for the 'output.txt' file. Run GoFast: 
 ```
 $ gofast data.yml output.txt
 ```
