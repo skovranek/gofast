@@ -1,3 +1,4 @@
+*.pyc
 .env
 venv/
 notes.txt
@@ -6,3 +7,5 @@ output.txt
 out/
 output/
 data.yml
+go.mod
+*.go
