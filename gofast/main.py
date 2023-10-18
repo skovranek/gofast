@@ -44,6 +44,10 @@ def main():
 
     dir = args.destination
 
+    if not os.path.exists(dir):
+        print(f"'{dir}' directory not found. Creating directory.")
+        os.makedirs(dir)
+
     os.chdir(dir)
     subprocess.run(f"go mod init {data['path']}", shell=True)
 
