@@ -1,6 +1,9 @@
 *.pyc
 .env
+build/
 data/
+dist/
+GoFast.egg-info/
 venv/
 notes.txt
 out.txt

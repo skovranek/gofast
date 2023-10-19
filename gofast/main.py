@@ -6,8 +6,8 @@ import sys
 
 from ruamel.yaml import YAML
 
-from parse_cli_args import parse
-from load_yaml import load
+from .parse_cli_args import parse
+from .load_yaml import load
 
 def main():
     args = parse()
@@ -15,6 +15,9 @@ def main():
     data = load(args.yaml_file)
 
     dir = args.destination
+
+    # for dev
+    subprocess.run(f"rm -rf ~/workspace/gofast/output", shell=True)
 
     if not os.path.exists(dir):
         if not args.quiet:
