@@ -3,11 +3,11 @@ from setuptools import setup, find_packages
 setup(
     name='GoFast',
     version='0.1.0',
-    description='Automatically generates an API and/or static server in Go from an OpenAPI spec YAML file.',
+    description='Generate an API Go module from an OpenAPI spec YAML file.',
     author='Matt Skovranek',
     author_email='mattjskov@gmail.com',
     url='https://github.com/skovranek/gofast',
-    packages=find_packages(include=['gofast', 'gofast.*']),
+    packages=find_packages(where='gofast'),
     install_requires=[
         'pathspec==0.11.2',
         'PyYAML==6.0.1',

@@ -5,7 +5,7 @@ import argparse
 def parse() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         prog='GoFast',
-        description="Generate an API and/or static server in Go according to an OpenAPI spec in a YAML file.",
+        description="Generate an API Go module from an OpenAPI spec YAML file.",
         epilog='Created by Matt Skovranek'
     )
 
@@ -14,13 +14,13 @@ def parse() -> argparse.Namespace:
         "-v",
         "--verbose",
         action="store_true",
-        help="display detailed processing information"
+        help="display detailed process"
     )
     verbosity.add_argument(
         "-q",
         "--quiet",
         action="store_true",
-        help="display minimal information"
+        help="display minimal info"
     )
 
     parser.add_argument(
@@ -34,16 +34,16 @@ def parse() -> argparse.Namespace:
         "-e",
         "--execute",
         action="store_true",
-        help="execute the Go binary"
+        help="build and execute the Go binary"
     )
 
     parser.add_argument(
         "yaml_file",
-        help="the YAML file containing the OpenAPI spec",
+        help="the OpenAPI spec YAML file",
     )
     parser.add_argument(
         "destination",
-        help="the location of the directory in which to generate your Go module",
+        help="the directory of the API Go module",
     )
 
     return parser.parse_args()
