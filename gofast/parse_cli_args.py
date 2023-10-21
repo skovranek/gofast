@@ -1,10 +1,10 @@
 from typing import Dict
 
-import argparse
+from argparse import Namespace, ArgumentParser
 
-def parse() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        prog='GoFast',
+def parse() -> Namespace:
+    parser = ArgumentParser(
+        prog='GoBuild',
         description="Generate an API Go module from an OpenAPI spec YAML file.",
         epilog='Created by Matt Skovranek'
     )
@@ -14,13 +14,13 @@ def parse() -> argparse.Namespace:
         "-v",
         "--verbose",
         action="store_true",
-        help="display detailed process"
+        help="display process"
     )
     verbosity.add_argument(
         "-q",
         "--quiet",
         action="store_true",
-        help="display minimal info"
+        help="display minimum detail"
     )
 
     parser.add_argument(

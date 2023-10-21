@@ -3,6 +3,7 @@
 build/
 data/
 dist/
+BuildGoFast.egg-info/
 GoFast.egg-info/
 venv/
 notes.txt

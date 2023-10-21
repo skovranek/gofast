@@ -5,27 +5,28 @@ A python project to generate go APIs.
 > **Note**
 > This is just an intermediate stage, for proof of concept.
 
-[How to create a CLI Cmd](https://dbader.org/blog/how-to-make-command-line-commands-with-python)
-1) Rename 'main.py' to 'gofast':
+
+1) Create a virtual environment.
 ```
-$ mv main.py gofast
+$ python3 -m venv venv
 ```
 
-2) Make sure 'gofast' has executable permission. 
+2) Start the virtual environment.
 ```
-$ chmod +x gofast
-```
-
-3) Add GoFast to your PATH. If on a mac with Zsh, add something like this line to '.zshrc':
-```
-echo 'export PATH=$PATH:$HOME/path/to/gofast' >> ~/.zshrc
-```
-or symlink it to the './venv/bin/' directory
-```
-$ ln -s gofast ./venv/bin/gofast
+$ source venv/bin/activate
 ```
 
-4) The new 'gofast' command takes two arguments. First, the YAML file. Second, the destination directory for the 'output.txt' file. Run GoFast: 
+3) Make sure 'pip', 'setuptools' and 'wheel' are installed and up to date in the virtual environment.
 ```
-$ gofast data.yml output.txt
+python3 -m pip install --upgrade pip setuptools wheel
+```
+
+4) Install GoFast in the virtual environment.
+```
+$ python3 -m pip install -e .
+```
+
+4) The new 'gofast' command takes two arguments. First, the YAML file. Second, the destination directory for the Go module.
+```
+$ gofast data.yml output
 ```

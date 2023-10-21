@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
 import os
-import subprocess
-import sys
+from subprocess import run
 
 from ruamel.yaml import YAML
 
@@ -13,36 +12,37 @@ def main():
     args = parse()
 
     data = load(args.yaml_file)
+    print(data)
 
-    dir = args.destination
+    root = args.destination
 
     # for dev
-    subprocess.run(f"rm -rf ~/workspace/gofast/output", shell=True)
+    run(f"rm -rf ~/workspace/gofast/output", shell=True)
 
-    if not os.path.exists(dir):
+    if not os.path.exists(root):
         if not args.quiet:
-            print(f"'{dir}' directory not found. Creating directory.")
-        os.makedirs(dir)
+            print(f"'{root}' directory not found. Creating directory.")
+        os.makedirs(root)
 
-    os.chdir(dir)
-    subprocess.run(f"go mod init {data['path']}", shell=True)
+    os.chdir(root)
+    run(f"go mod init github.com/skovranek/repo", shell=True)
 
     with open(f'main.go', 'a') as f:
-        f.write(f"package {data['package']}\n\n")
-        f.write(f"import \"{data['import']}\"\n\n")
+        f.write(f"package main\n\n")
+        f.write(f"import \"fmt\"\n\n")
         f.write(f"func main() {{\n\tfmt.Println(\"hello world\")\n}}")
 
     if args.quiet:
         print("done")
     elif args.verbose:
-        print(f"Writing '{data['package']}' to '{dir}/main.go'")
+        print(f"Writing '{data['info']['title']}' to '{root}/main.go'")
     else:
-        print(f"Writing to '{dir}/main.go'")
+        print(f"Writing to '{root}/main.go'")
 
     if args.execute:
-        subprocess.run("go build -o out && ./out", shell=True)
+        run("go build -o out && ./out", shell=True)
     elif args.build:
-        subprocess.run("go build -o out", shell=True)
+        run("go build -o out", shell=True)
 
 if __name__ == "__main__":
     main()
