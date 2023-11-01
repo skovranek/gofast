@@ -42,11 +42,11 @@ def parse() -> Namespace:
         help="the OpenAPI spec YAML file",
     )
     parser.add_argument(
-        "directory",
-        help="the directory of the API Go module",
+        "dir",
+        help="the directory in which to create the Go module",
     )
     parser.add_argument(
-        "module",
+        "mod",
         help="the Go module name, usually a github repo",
     )
 

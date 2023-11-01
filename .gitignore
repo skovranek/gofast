@@ -14,3 +14,4 @@ output/
 data.yml
 go.mod
 *.go
+todo.txt

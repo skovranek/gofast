@@ -14,6 +14,7 @@ def main():
     root = args.directory
 
     # for dev, remove later
+    run('rm -rf ~/work/gofast/out', shell=True)
     run('rm -rf ~/work/gofast/output', shell=True)
 
     if not os.path.exists(root):
