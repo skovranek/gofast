@@ -6,7 +6,7 @@ with open("README.md", "r") as f:
 setup(
     name='BuildGoFast',
     version='0.0.0',
-    description='Generate an API Go module from an OpenAPI spec YAML file.',
+    description='Generate an API Go module from an OpenAPI Description YAML file.',
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://github.com/skovranek/gofast',

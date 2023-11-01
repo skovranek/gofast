@@ -4,9 +4,9 @@ from argparse import Namespace, ArgumentParser
 
 def parse() -> Namespace:
     parser = ArgumentParser(
-        prog='GoBuild',
-        description="Generate an API Go module from an OpenAPI spec YAML file.",
-        epilog='Created by Matt Skovranek'
+        prog='GoFast',
+        description="Generate an API Go module from an OpenAPI Description YAML file.",
+        epilog='GoFast created by Matt Skovranek'
     )
 
     verbosity = parser.add_mutually_exclusive_group()
@@ -38,12 +38,16 @@ def parse() -> Namespace:
     )
 
     parser.add_argument(
-        "yaml_file",
+        "yaml",
         help="the OpenAPI spec YAML file",
     )
     parser.add_argument(
-        "destination",
+        "directory",
         help="the directory of the API Go module",
+    )
+    parser.add_argument(
+        "module",
+        help="the Go module name, usually a github repo",
     )
 
     return parser.parse_args()
