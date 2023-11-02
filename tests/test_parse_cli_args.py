@@ -37,14 +37,15 @@ class TestParseCLIArgs(unittest.TestCase):
         self.assert_system_exit_error(context.exception)
 
     @patch('sys.argv', [None, 'tests/openapi.yaml', 'output', 'github.com/skovranek/gofast'])
-    def test_yaml_directory_and_module_args(self):
+    def test_yaml_dir_and_mod_args(self):
         expect = {
             'verbose': False,
             'quiet': False,
             'build': False,
             'execute': False,
             'yaml': 'tests/openapi.yaml',
-            'directory': 'output'
+            'dir': 'output',
+            'mod': 'github.com/skovranek/gofast'
         }
         self.assert_parsed(expect, parse())
 
@@ -56,7 +57,8 @@ class TestParseCLIArgs(unittest.TestCase):
             'build': False,
             'execute': False,
             'yaml': 'tests/openapi.yaml',
-            'directory': 'output'
+            'dir': 'output',
+            'mod': 'github.com/skovranek/gofast'
         }
         self.assert_parsed(expect, parse())
 
@@ -68,7 +70,8 @@ class TestParseCLIArgs(unittest.TestCase):
             'build': False,
             'execute': False,
             'yaml': 'tests/openapi.yaml',
-            'directory': 'output'
+            'dir': 'output',
+            'mod': 'github.com/skovranek/gofast'
         }
         self.assert_parsed(expect, parse())
 
@@ -86,7 +89,8 @@ class TestParseCLIArgs(unittest.TestCase):
             'build': True,
             'execute': False,
             'yaml': 'tests/openapi.yaml',
-            'directory': 'output'
+            'dir': 'output',
+            'mod': 'github.com/skovranek/gofast'
         }
         self.assert_parsed(expect, parse())
 
@@ -98,7 +102,8 @@ class TestParseCLIArgs(unittest.TestCase):
             'build': False,
             'execute': True,
             'yaml': 'tests/openapi.yaml',
-            'directory': 'output'
+            'dir': 'output',
+            'mod': 'github.com/skovranek/gofast'
         }
         self.assert_parsed(expect, parse())
 
@@ -110,7 +115,8 @@ class TestParseCLIArgs(unittest.TestCase):
             'build': True,
             'execute': True,
             'yaml': 'tests/openapi.yaml',
-            'directory': 'output'
+            'dir': 'output',
+            'mod': 'github.com/skovranek/gofast'
         }
         self.assert_parsed(expect, parse())
 
@@ -122,7 +128,8 @@ class TestParseCLIArgs(unittest.TestCase):
             'build': True,
             'execute': True,
             'yaml': 'tests/openapi.yaml',
-            'directory': 'output'
+            'dir': 'output',
+            'mod': 'github.com/skovranek/gofast'
         }
         self.assert_parsed(expect, parse())
 
