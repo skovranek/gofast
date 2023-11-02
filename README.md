@@ -1,6 +1,6 @@
 # GoFast
 A python project to generate go APIs.
-
+[![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/pylint-dev/pylint)
 ## How to Execute GoFast
 > **Note**
 > This is just an intermediate stage, for proof of concept.
