@@ -38,17 +38,17 @@ jobs:
         with:
           python-version: '3.12.0'
 
-    - name: Install dependencies
-      run: pip install -r requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-    - name: Lint with flake8
-      run: flake8 gofast
+      - name: Lint with flake8
+        run: flake8 gofast
 
-    - name: Lint with pylint
-      run: pylint gofast
+      - name: Lint with pylint
+        run: pylint gofast
 
-    - name: Lint tests with flake8
-      run: flake8 tests
+      - name: Lint tests with flake8
+        run: flake8 tests
 
-    - name: Lint tests with pylint
-      run: pylint tests
+      - name: Lint tests with pylint
+        run: pylint tests
