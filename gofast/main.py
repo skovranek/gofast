@@ -11,7 +11,7 @@ from .go_create_server import contents
 def main():
     args = parse()
     data = load(args.yaml)
-    root = args.directory
+    root = args.dir
 
     # for dev, remove later
     run('rm -rf ~/work/gofast/out', shell=True)
@@ -29,7 +29,7 @@ def main():
         print(f"Initializing Go module in '{root}'")
 
     os.chdir(root)
-    run(f'go mod init {args.module}', shell=True)
+    run(f'go mod init {args.mod}', shell=True)
     run('go get github.com/go-chi/chi/v5', shell=True)
     run('go get github.com/go-chi/cors', shell=True)
 
