@@ -1,5 +1,4 @@
 astroid==3.0.1
--e git+ssh://git@github.com/skovranek/gofast.git@c681b96014fb48469a3fe9a14863ee64f9c331aa#egg=BuildGoFast
 dill==0.3.7
 flake8==6.1.0
 isort==5.12.0
