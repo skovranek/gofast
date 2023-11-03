@@ -13,6 +13,7 @@ info:
   version: 0.0.1
 ..."""
 
+
 class TestLoadYaml(unittest.TestCase):
     """Class testing load function from 'gofast/load_yaml.py'."""
 
@@ -21,7 +22,7 @@ class TestLoadYaml(unittest.TestCase):
         """Method mocks yaml file to assert load outputs expected data."""
         data = load('mock.yaml')
 
-        mock.assert_called_once_with('mock.yaml', 'r')
+        mock.assert_called_once_with('mock.yaml', 'r', encoding='utf-8')
 
         self.assertEqual(data['openapi'], '3.1.0')
         self.assertEqual(data['info']['title'], 'Test API')

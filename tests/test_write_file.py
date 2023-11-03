@@ -16,7 +16,7 @@ class TestWriteFile(unittest.TestCase):
         m = mock_open()
         with patch('builtins.open', m):
             write_file(file_path, contents)
-        m.assert_called_once_with(file_path, 'w')
+        m.assert_called_once_with(file_path, 'w', encoding='utf-8')
         m().write.assert_called_once_with(contents)
 
 
