@@ -1,11 +1,10 @@
-from typing import Dict
-
 from argparse import Namespace, ArgumentParser
+
 
 def parse() -> Namespace:
     parser = ArgumentParser(
         prog='GoFast',
-        description="Generate an API Go module from an OpenAPI Description YAML file.",
+        description="Generate a Go API from an OpenAPI Description.",
         epilog='GoFast created by Matt Skovranek'
     )
 

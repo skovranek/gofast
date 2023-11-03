@@ -1,12 +1,11 @@
 import os
 from subprocess import run
 
-from ruamel.yaml import YAML
-
 from .parse_cli_args import parse
 from .load_yaml import load
 from .write_file import write_file
 from .go_create_server import contents
+
 
 def main():
     args = parse()
@@ -43,10 +42,10 @@ import (
 func main() {
     fmt.Println("hello world")
 
-	srv := createServer()
+    srv := createServer()
 
-	log.Print("Starting server on port #8000")
-	log.Fatal(srv.ListenAndServe())
+    log.Print("Starting server on port #8000")
+    log.Fatal(srv.ListenAndServe())
 }"""
 
     write_file('main.go', main_go)
@@ -59,8 +58,9 @@ func main() {
     elif args.build:
         print('Building Go module')
         run('go build -o out', shell=True)
-    
+
     print('Done')
+
 
 if __name__ == "__main__":
     main()
