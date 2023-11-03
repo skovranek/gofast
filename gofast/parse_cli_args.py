@@ -1,7 +1,9 @@
+"""Module providing a function parsing arguments from CLI."""
 from argparse import Namespace, ArgumentParser
 
 
 def parse() -> Namespace:
+    """Function parsing CLI arguments."""
     parser = ArgumentParser(
         prog='GoFast',
         description="Generate a Go API from an OpenAPI Description.",

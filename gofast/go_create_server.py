@@ -1,4 +1,6 @@
-contents = '''package main
+"""Module providing the constant string CONTENTS which is Go code."""
+
+CONTENTS = '''package main
 
 import (
     "net/http"
