@@ -1,6 +1,6 @@
-"""Module providing the constant string CONTENTS which is Go code."""
+"""Module providing the contents for the 'create_server.go' file."""
 
-CONTENTS = '''package main
+GO_CREATE_SERVER_CONTENTS = '''package main
 
 import (
     "net/http"

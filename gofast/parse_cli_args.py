@@ -3,7 +3,7 @@ from argparse import Namespace, ArgumentParser
 
 
 def parse() -> Namespace:
-    """Function parsing CLI arguments."""
+    """Returns object with key-values from CLI args."""
     parser = ArgumentParser(
         prog='GoFast',
         description="Generate a Go API from an OpenAPI Description.",

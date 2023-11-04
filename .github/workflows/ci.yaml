@@ -52,3 +52,28 @@ jobs:
 
       - name: Lint tests with pylint
         run: pylint tests
+
+  security:
+    name: security
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12.0'
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Check security with safety
+      run: safety check --full-report
+
+    - name: Check security of gofast with bandit
+      run: bandit -r gofast
+
+    - name: Check security of tests with bandit
+      run: bandit -r tests
