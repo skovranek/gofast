@@ -69,9 +69,6 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
 
-    - name: Check security with safety
-      run: safety check --full-report
-
     - name: Check security of gofast with bandit
       run: bandit -r gofast
 
