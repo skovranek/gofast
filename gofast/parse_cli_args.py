@@ -25,12 +25,17 @@ def parse() -> Namespace:
     )
 
     parser.add_argument(
+        "-t",
+        "--test",
+        action="store_true",
+        help="run Go tests"
+    )
+    parser.add_argument(
         "-b",
         "--build",
         action="store_true",
         help="build the Go binary"
     )
-    # just for dev
     parser.add_argument(
         "-e",
         "--execute",

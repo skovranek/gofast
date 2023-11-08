@@ -54,7 +54,8 @@ class TestParseCLIArgs(unittest.TestCase):
         expect = {
             'verbose': False,
             'quiet': False,
-            'build': False,
+            'test': False,
+			'build': False,
             'execute': False,
             'yaml': 'tests/openapi.yaml',
             'dir': 'output',
@@ -74,7 +75,8 @@ class TestParseCLIArgs(unittest.TestCase):
         expect = {
             'verbose': True,
             'quiet': False,
-            'build': False,
+            'test': False,
+			'build': False,
             'execute': False,
             'yaml': 'tests/openapi.yaml',
             'dir': 'output',
@@ -94,7 +96,8 @@ class TestParseCLIArgs(unittest.TestCase):
         expect = {
             'verbose': True,
             'quiet': False,
-            'build': False,
+            'test': False,
+			'build': False,
             'execute': False,
             'yaml': 'tests/openapi.yaml',
             'dir': 'output',
@@ -118,6 +121,27 @@ class TestParseCLIArgs(unittest.TestCase):
 
     @patch('sys.argv', [
         None,
+        '--test',
+        'tests/openapi.yaml',
+        'output',
+        'github.com/skovranek/gofast'
+    ])
+    def test_build_option(self):
+        """Method asserts test option is True."""
+        expect = {
+            'verbose': False,
+            'quiet': False,
+            'test': True,
+			'build': False,
+            'execute': False,
+            'yaml': 'tests/openapi.yaml',
+            'dir': 'output',
+            'mod': 'github.com/skovranek/gofast'
+        }
+        self.assert_parsed(expect, parse())
+
+    @patch('sys.argv', [
+        None,
         '--build',
         'tests/openapi.yaml',
         'output',
@@ -128,7 +152,8 @@ class TestParseCLIArgs(unittest.TestCase):
         expect = {
             'verbose': False,
             'quiet': False,
-            'build': True,
+            'test': False,
+			'build': True,
             'execute': False,
             'yaml': 'tests/openapi.yaml',
             'dir': 'output',
@@ -148,7 +173,8 @@ class TestParseCLIArgs(unittest.TestCase):
         expect = {
             'verbose': False,
             'quiet': False,
-            'build': False,
+            'test': False,
+			'build': False,
             'execute': True,
             'yaml': 'tests/openapi.yaml',
             'dir': 'output',
@@ -168,7 +194,8 @@ class TestParseCLIArgs(unittest.TestCase):
         expect = {
             'verbose': False,
             'quiet': False,
-            'build': True,
+            'test': False,
+			'build': True,
             'execute': True,
             'yaml': 'tests/openapi.yaml',
             'dir': 'output',
@@ -189,7 +216,8 @@ class TestParseCLIArgs(unittest.TestCase):
         expect = {
             'verbose': False,
             'quiet': True,
-            'build': True,
+            'test': False,
+			'build': True,
             'execute': True,
             'yaml': 'tests/openapi.yaml',
             'dir': 'output',

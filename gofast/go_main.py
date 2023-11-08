@@ -3,15 +3,16 @@
 GO_MAIN_CONTENTS = """package main
 
 import (
-    "fmt"
-    "log"
+	"fmt"
+	"log"
 )
 
 func main() {
-    fmt.Println("hello world")
+	fmt.Println("use 'ctrl-c' to quit")
 
-    srv := createServer()
+	srv := createServer()
 
-    log.Print("Starting server on port #8000")
-    log.Fatal(srv.ListenAndServe())
-}"""
+	log.Print("Starting server on port #8000")
+	log.Fatal(srv.ListenAndServe())
+}
+"""
