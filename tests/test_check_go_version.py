@@ -1,10 +1,11 @@
 """Module testing checking go version."""
-from unittest import TestCase
+import unittest
 from unittest.mock import patch, Mock
 
 from gofast.check_go_version import go1_21
 
-class TestCheckGoVersion(TestCase):
+
+class TestCheckGoVersion(unittest.TestCase):
     """Class testing go version function from 'check_go_version.py'."""
     @patch('subprocess.run')
     def test_go1_21(self, mock):

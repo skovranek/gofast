@@ -1,6 +1,7 @@
 """Module providing function to check Go lang is installed."""
 import subprocess
 
+
 def go1_21() -> bool:
     """Run 'go version' to check it is 1.21 or later."""
     try:
@@ -14,7 +15,7 @@ def go1_21() -> bool:
         if go_version.stdout[:16] == 'go version go1.2':
             if int(go_version.stdout[15:17]) > 20:
                 return True
-    except Exception as e:
+    except Exception as e: # pylint: disable=broad-exception-caught
         print(e)
 
     print('Go version go1.21 or later must be installed')

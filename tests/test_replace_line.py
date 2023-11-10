@@ -1,8 +1,8 @@
 """Module testing replacing a line in a file."""
 import unittest
-from unittest.mock import mock_open, patch
 
 from gofast.replace_line import replace_line
+
 
 class TestReplaceLine(unittest.TestCase):
     """Class testing replace_line function from 'gofast/replace_line.py'."""

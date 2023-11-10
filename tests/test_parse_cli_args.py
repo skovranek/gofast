@@ -55,7 +55,7 @@ class TestParseCLIArgs(unittest.TestCase):
             'verbose': False,
             'quiet': False,
             'test': False,
-			'build': False,
+            'build': False,
             'execute': False,
             'yaml': 'tests/openapi.yaml',
             'dir': 'output',
@@ -76,7 +76,7 @@ class TestParseCLIArgs(unittest.TestCase):
             'verbose': True,
             'quiet': False,
             'test': False,
-			'build': False,
+            'build': False,
             'execute': False,
             'yaml': 'tests/openapi.yaml',
             'dir': 'output',
@@ -97,7 +97,7 @@ class TestParseCLIArgs(unittest.TestCase):
             'verbose': True,
             'quiet': False,
             'test': False,
-			'build': False,
+            'build': False,
             'execute': False,
             'yaml': 'tests/openapi.yaml',
             'dir': 'output',
@@ -126,13 +126,13 @@ class TestParseCLIArgs(unittest.TestCase):
         'output',
         'github.com/skovranek/gofast'
     ])
-    def test_build_option(self):
+    def test_test_option(self):
         """Method asserts test option is True."""
         expect = {
             'verbose': False,
             'quiet': False,
             'test': True,
-			'build': False,
+            'build': False,
             'execute': False,
             'yaml': 'tests/openapi.yaml',
             'dir': 'output',
@@ -153,7 +153,7 @@ class TestParseCLIArgs(unittest.TestCase):
             'verbose': False,
             'quiet': False,
             'test': False,
-			'build': True,
+            'build': True,
             'execute': False,
             'yaml': 'tests/openapi.yaml',
             'dir': 'output',
@@ -174,7 +174,7 @@ class TestParseCLIArgs(unittest.TestCase):
             'verbose': False,
             'quiet': False,
             'test': False,
-			'build': False,
+            'build': False,
             'execute': True,
             'yaml': 'tests/openapi.yaml',
             'dir': 'output',
@@ -189,13 +189,13 @@ class TestParseCLIArgs(unittest.TestCase):
         'output',
         'github.com/skovranek/gofast'
     ])
-    def test_build_and_execute_flags(self):
+    def test_b_and_e_flags(self):
         """Method asserts -be flags set their options to true."""
         expect = {
             'verbose': False,
             'quiet': False,
             'test': False,
-			'build': True,
+            'build': True,
             'execute': True,
             'yaml': 'tests/openapi.yaml',
             'dir': 'output',
@@ -211,14 +211,36 @@ class TestParseCLIArgs(unittest.TestCase):
         'output',
         'github.com/skovranek/gofast'
     ])
-    def test_quiet_and_build_flags_and_execute_option(self):
+    def test_q_and_b_flags_and_execute_option(self):
         """Method asserts -qb flags and execute options are true."""
         expect = {
             'verbose': False,
             'quiet': True,
             'test': False,
-			'build': True,
+            'build': True,
             'execute': True,
+            'yaml': 'tests/openapi.yaml',
+            'dir': 'output',
+            'mod': 'github.com/skovranek/gofast'
+        }
+        self.assert_parsed(expect, parse())
+
+    @patch('sys.argv', [
+        None,
+        '-b',
+        '--build',
+        'tests/openapi.yaml',
+        'output',
+        'github.com/skovranek/gofast'
+    ])
+    def test_b_flag_and_build_option(self):
+        """Method asserts -b flag and build options do not conflict."""
+        expect = {
+            'verbose': False,
+            'quiet': False,
+            'test': False,
+            'build': True,
+            'execute': False,
             'yaml': 'tests/openapi.yaml',
             'dir': 'output',
             'mod': 'github.com/skovranek/gofast'
